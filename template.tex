@@ -1,0 +1,41 @@
+\documentclass[UTF8]{ctexart}
+%\setmainfont{Noto Sans CJK SC}
+\usepackage{xeCJK}
+\xeCJKsetup{AutoFakeSlant=0.4}
+\setCJKmainfont[BoldFont=.PingFang SC Semibold]{.PingFang SC Regular}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, left=2cm, right=2cm,top=2cm,bottom=2cm}
+\usepackage{pifont}
+%\ding{172}=\textcircled{1}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[perpage]{footmisc}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
+\definecolor{SolarlizedLight}{rgb}{0.97,0.96,0.87}
+\definecolor{LightGreen}{rgb}{0.66,0.82,0.55}
+\newcommand{\red}{\textcolor{red}}
+
+\title{}
+\author{Xiao Liang}
+\date{\today}
+%\hypersetup
+%{colorlinks=true,
+%	linkcolor=black}
+
+\pagecolor{SolarlizedLight}
+\begin{document}
+    \maketitle
+    \numberwithin{equation}{section}
+    \tableofcontents
+    %\CJKfontspec{Noto Sans Mono CJK SC}
+    \CJKfontspec[BoldFont=.PingFang SC Semibold]{.PingFang SC Regular}
+\end{document}

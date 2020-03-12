@@ -1,0 +1,113 @@
+\contentsline {section}{\numberline {1}电磁现象的普遍规律}{4}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}麦克斯韦方程组和周围公式}{4}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}介质的电磁特定}{4}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}电磁场边值关系}{5}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}电磁场的能量和能流}{5}{subsection.1.4}% 
+\contentsline {subsubsection}{\numberline {1.4.1}能量守恒}{5}{subsubsection.1.4.1}% 
+\contentsline {subsubsection}{\numberline {1.4.2}电磁场能量密度和能流密度}{6}{subsubsection.1.4.2}% 
+\contentsline {section}{\numberline {2}静电场}{6}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}静电场基本情况}{6}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}唯一性定理}{7}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}拉普拉斯方程与分离变量法}{7}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}镜像法}{7}{subsection.2.4}% 
+\contentsline {paragraph}{接地无穷大平面情况}{7}{paragraph*.2}% 
+\contentsline {paragraph}{导体球情况}{7}{figure.1}% 
+\contentsline {subsection}{\numberline {2.5}格林函数}{8}{subsection.2.5}% 
+\contentsline {subsubsection}{\numberline {2.5.1}几种常用的格林函数}{8}{subsubsection.2.5.1}% 
+\contentsline {paragraph}{无界空间}{8}{paragraph*.4}% 
+\contentsline {paragraph}{上半空间}{8}{paragraph*.5}% 
+\contentsline {paragraph}{球外空间}{8}{paragraph*.6}% 
+\contentsline {subsubsection}{\numberline {2.5.2}格林公式与边值问题的解}{8}{subsubsection.2.5.2}% 
+\contentsline {subsection}{\numberline {2.6}电多极矩}{9}{subsection.2.6}% 
+\contentsline {subsubsection}{\numberline {2.6.1}电势的多级展开}{9}{subsubsection.2.6.1}% 
+\contentsline {subsubsection}{\numberline {2.6.2}电多极矩}{10}{subsubsection.2.6.2}% 
+\contentsline {subsubsection}{\numberline {2.6.3}电荷体系在外电场中的能量}{10}{subsubsection.2.6.3}% 
+\contentsline {section}{\numberline {3}静磁场}{11}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}矢势}{11}{subsection.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}微分方程}{11}{subsubsection.3.1.1}% 
+\contentsline {paragraph}{库伦规范}{11}{paragraph*.7}% 
+\contentsline {subsubsection}{\numberline {3.1.2}矢势边值关系}{11}{subsubsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.3}静磁场能量}{12}{subsubsection.3.1.3}% 
+\contentsline {subsection}{\numberline {3.2}磁标势}{12}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}磁多极距}{12}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}矢势的多级展开}{12}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}磁偶极矩的场}{13}{subsubsection.3.3.2}% 
+\contentsline {subsubsection}{\numberline {3.3.3}小区域内电流分布在外磁场中的能量}{13}{subsubsection.3.3.3}% 
+\contentsline {section}{\numberline {4}电磁波的传播}{14}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}平面电磁波}{14}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}时谐电磁波}{15}{subsubsection.4.1.1}% 
+\contentsline {subsubsection}{\numberline {4.1.2}平面电磁波}{15}{subsubsection.4.1.2}% 
+\contentsline {subsubsection}{\numberline {4.1.3}能量和能流}{15}{subsubsection.4.1.3}% 
+\contentsline {subsection}{\numberline {4.2}电磁波的反射和折射}{15}{subsection.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}方向关系}{15}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}幅值关系——菲涅耳公式}{16}{subsubsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.3}全反射}{16}{subsubsection.4.2.3}% 
+\contentsline {subsection}{\numberline {4.3}导体存在时电磁波的传播}{17}{subsection.4.3}% 
+\contentsline {subsubsection}{\numberline {4.3.1}导体内的自由电荷分布}{17}{subsubsection.4.3.1}% 
+\contentsline {subsubsection}{\numberline {4.3.2}导体内电磁波}{17}{subsubsection.4.3.2}% 
+\contentsline {subsubsection}{\numberline {4.3.3}趋肤效应和穿透深度}{18}{subsubsection.4.3.3}% 
+\contentsline {subsubsection}{\numberline {4.3.4}导体表面上的反射}{19}{subsubsection.4.3.4}% 
+\contentsline {subsection}{\numberline {4.4}谐振腔}{19}{subsection.4.4}% 
+\contentsline {subsubsection}{\numberline {4.4.1}理想导体边界条件}{20}{subsubsection.4.4.1}% 
+\contentsline {subsubsection}{\numberline {4.4.2}谐振腔}{21}{subsubsection.4.4.2}% 
+\contentsline {subsection}{\numberline {4.5}波导}{21}{subsection.4.5}% 
+\contentsline {subsubsection}{\numberline {4.5.1}高频电磁能量的传输}{21}{subsubsection.4.5.1}% 
+\contentsline {subsubsection}{\numberline {4.5.2}矩形波导中的电磁波}{21}{subsubsection.4.5.2}% 
+\contentsline {subsubsection}{\numberline {4.5.3}截止频率}{22}{subsubsection.4.5.3}% 
+\contentsline {subsubsection}{\numberline {4.5.4}$TE_{10}$波的电磁场和管壁电流}{22}{subsubsection.4.5.4}% 
+\contentsline {section}{\numberline {5}电磁波的辐射}{23}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}电磁场的矢势和标势}{23}{subsection.5.1}% 
+\contentsline {subsubsection}{\numberline {5.1.1}规范变换和规范不变性}{24}{subsubsection.5.1.1}% 
+\contentsline {paragraph}{库伦规范}{24}{paragraph*.8}% 
+\contentsline {paragraph}{洛伦兹规范}{24}{paragraph*.9}% 
+\contentsline {subsubsection}{\numberline {5.1.2}达朗贝尔方程}{24}{subsubsection.5.1.2}% 
+\contentsline {subsection}{\numberline {5.2}推迟势}{25}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}电偶极辐射}{26}{subsection.5.3}% 
+\contentsline {subsubsection}{\numberline {5.3.1}计算辐射场的一般公式}{26}{subsubsection.5.3.1}% 
+\contentsline {subsubsection}{\numberline {5.3.2}矢势的展开式}{27}{subsubsection.5.3.2}% 
+\contentsline {subsubsection}{\numberline {5.3.3}偶级辐射}{27}{subsubsection.5.3.3}% 
+\contentsline {subsubsection}{\numberline {5.3.4}辐射能流，角分布和辐射功率}{28}{subsubsection.5.3.4}% 
+\contentsline {subsubsection}{\numberline {5.3.5}短天线的辐射}{29}{subsubsection.5.3.5}% 
+\contentsline {subsection}{\numberline {5.4}磁偶级辐射和电四级辐射}{30}{subsection.5.4}% 
+\contentsline {subsubsection}{\numberline {5.4.1}高频电流分布的磁偶极矩和电四极矩}{30}{subsubsection.5.4.1}% 
+\contentsline {subsubsection}{\numberline {5.4.2}磁偶级辐射}{31}{subsubsection.5.4.2}% 
+\contentsline {subsubsection}{\numberline {5.4.3}电四级辐射}{31}{subsubsection.5.4.3}% 
+\contentsline {subsection}{\numberline {5.5}天线辐射}{32}{subsection.5.5}% 
+\contentsline {subsubsection}{\numberline {5.5.1}天线上的电流分布}{32}{subsubsection.5.5.1}% 
+\contentsline {subsubsection}{\numberline {5.5.2}半波天线}{32}{subsubsection.5.5.2}% 
+\contentsline {subsubsection}{\numberline {5.5.3}天线阵}{33}{subsubsection.5.5.3}% 
+\contentsline {subsection}{\numberline {5.6}电磁波的衍射}{33}{subsection.5.6}% 
+\contentsline {subsubsection}{\numberline {5.6.1}从电动力学基本原理出发推导惠更斯原理}{33}{subsubsection.5.6.1}% 
+\contentsline {subsubsection}{\numberline {5.6.2}小孔衍射}{34}{subsubsection.5.6.2}% 
+\contentsline {subsection}{\numberline {5.7}电磁场的动量}{35}{subsection.5.7}% 
+\contentsline {subsubsection}{\numberline {5.7.1}电磁场的动量密度和动量流密度}{35}{subsubsection.5.7.1}% 
+\contentsline {subsubsection}{\numberline {5.7.2}辐射压力}{37}{subsubsection.5.7.2}% 
+\contentsline {section}{\numberline {6}狭义相对论}{37}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}相对论基本原理和洛伦兹变换}{37}{subsection.6.1}% 
+\contentsline {subsubsection}{\numberline {6.1.1}相对论基本原理}{37}{subsubsection.6.1.1}% 
+\contentsline {subsubsection}{\numberline {6.1.2}间隔不变性}{38}{subsubsection.6.1.2}% 
+\contentsline {subsubsection}{\numberline {6.1.3}洛伦兹变换}{38}{subsubsection.6.1.3}% 
+\contentsline {subsection}{\numberline {6.2}相对论的时空理论}{39}{subsection.6.2}% 
+\contentsline {subsubsection}{\numberline {6.2.1}相对论的时空结构}{39}{subsubsection.6.2.1}% 
+\contentsline {subsubsection}{\numberline {6.2.2}同时相对性}{40}{subsubsection.6.2.2}% 
+\contentsline {subsubsection}{\numberline {6.2.3}运动时间的延缓}{41}{subsubsection.6.2.3}% 
+\contentsline {subsubsection}{\numberline {6.2.4}运动尺度缩短}{41}{subsubsection.6.2.4}% 
+\contentsline {subsubsection}{\numberline {6.2.5}速度变换公式}{42}{subsubsection.6.2.5}% 
+\contentsline {subsection}{\numberline {6.3}相对论理论的四维形式}{42}{subsection.6.3}% 
+\contentsline {subsubsection}{\numberline {6.3.1}物理量按空间变换性质的分类}{42}{subsubsection.6.3.1}% 
+\contentsline {paragraph}{标量}{42}{paragraph*.10}% 
+\contentsline {paragraph}{矢量}{43}{paragraph*.11}% 
+\contentsline {paragraph}{二阶张量}{43}{paragraph*.12}% 
+\contentsline {subsubsection}{\numberline {6.3.2}洛伦兹变换的思维形式}{43}{subsubsection.6.3.2}% 
+\contentsline {subsubsection}{\numberline {6.3.3}四维协变量}{43}{subsubsection.6.3.3}% 
+\contentsline {subsubsection}{\numberline {6.3.4}物理规律的协变性}{44}{subsubsection.6.3.4}% 
+\contentsline {subsection}{\numberline {6.4}电动力学的相对论不变性}{44}{subsection.6.4}% 
+\contentsline {subsubsection}{\numberline {6.4.1}四维电流密度矢量}{44}{subsubsection.6.4.1}% 
+\contentsline {subsubsection}{\numberline {6.4.2}四维势矢量}{45}{subsubsection.6.4.2}% 
+\contentsline {subsubsection}{\numberline {6.4.3}电磁场张量}{45}{subsubsection.6.4.3}% 
+\contentsline {subsubsection}{\numberline {6.4.4}电磁场的不变量}{46}{subsubsection.6.4.4}% 
+\contentsline {subsection}{\numberline {6.5}相对论力学}{47}{subsection.6.5}% 
+\contentsline {subsection}{\numberline {6.6}从作用量出发串联起相对论电动力学}{47}{subsection.6.6}% 
+\contentsline {subsubsection}{\numberline {6.6.1}作用量}{47}{subsubsection.6.6.1}% 
+\contentsline {subsubsection}{\numberline {6.6.2}对称性}{47}{subsubsection.6.6.2}% 
+\contentsline {subsubsection}{\numberline {6.6.3}动量流密度张量}{47}{subsubsection.6.6.3}% 

@@ -1,0 +1,266 @@
+\documentclass[UTF8,12pt]{ctexart}
+%\setmainfont{Noto Sans CJK SC}
+\usepackage{xeCJK}
+\xeCJKsetup{AutoFakeSlant=0.4}
+\setCJKmainfont[BoldFont=.PingFang SC Semibold]{.PingFang SC Regular}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fourier}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{a4paper, left=2cm, right=2cm,top=2cm,bottom=2cm}
+\usepackage{pifont}
+%\ding{172}=\textcircled{1}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage[perpage]{footmisc}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
+
+\title{Part1 Transform}
+\author{Xiao Liang}
+\date{\today}
+
+
+\begin{document}
+	\maketitle
+	\numberwithin{equation}{section}
+	%\CJKfontspec{Noto Sans Mono CJK SC}
+	\CJKfontspec[BoldFont=.PingFang SC Semibold]{.PingFang SC Regular}
+
+	\section{傅里叶级数}
+	傅里叶级数本质上就是一种特殊形式的函数展开，类似泰勒定理，其基底函数取三角函数中的正弦和余弦函数。在傅里叶级数中，任意两个不同的基底函数在$ [0,2\pi] $的范围内是正交的。
+	
+	\subsection{周期函数的傅里叶级数}
+	\subsubsection{一般情况}
+	
+	一个傅里叶级数在一般情况下表示为
+	\begin{equation}
+		f(x) = a_{0} + \sum_{n=1}^{\infty} (a_{n} \cos nx + b_{n} \sin nx)\label{equ_fourier}
+	\end{equation}
+	
+\noindent 其中，$ a_{0},a_{n} \ and \ b_{n} $是展开系数。假定一个周期为$ 2 \pi $的函数$ f(x) $可以按照\autoref{equ_fourier}展开，则通过傅里叶级数的基底函数相互正交的性质以及在一个周期内$ \cos nx \ and \ \sin nx $积分为零的性质可以得到：
+\begin{equation}
+	\begin{aligned}
+		a_{0} &= \frac{1}{2 \pi} \int_{0}^{2 \pi} f(x) \dif x\\
+		a_{n} &= \frac{1}{\pi} \int_{0}^{2 \pi} f(x) \cos nx \dif x\\
+		b_{n} &= \frac{1}{\pi} \int_{0}^{2 \pi} f(x) \sin nx \dif x
+	\end{aligned}
+\end{equation}
+
+	\subsubsection{傅里叶级数的收敛性}
+	\autoref{equ_fourier}的收敛性问题由狄利克雷（Dirichlet）定理描述，该定理的完整叙述是：
+	
+	假定
+	
+	（1） $ f(x) $在$ (-\pi,\pi) $内除了有限个点外有定义且单值；
+	
+	（2） $ f(x) $在$ (-\pi,\pi) $外是周期函数，周期为$ 2 \pi $；
+	
+	（3） $ f(x) $在$ (-\pi,\pi) $内分段连续，即$ f(x) $分段光滑，
+	
+	\noindent 则傅里叶级数收敛于
+	\begin{equation}
+	\begin{aligned}
+	a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n x+b_{n} \sin n x\right)&=f(x)\quad (continuous\ point\ at\ x)\\
+	a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n x+b_{n} \sin n x\right)&=\frac{f(x-0)+f(x+0)}{2}\quad (break\ point\ at\ x)
+	\end{aligned}\label{equ_Dirichlet}
+	\end{equation}
+	
+	狄利克雷条件是傅里叶级数的充分条件，但不是必要条件，在实际问题中这些条件通常是满足的。
+	
+	\subsubsection{傅里叶级数的推广}
+	上述傅里叶级数可以推广到以$ 2L $为周期的函数，在这种情况下，\autoref{equ_fourier}变为
+	\begin{equation}
+	f(x)=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos \frac{n \pi}{L} x+b_{n} \sin \frac{n \pi}{L} x\right)
+	\end{equation}
+	
+\noindent 相应的，展开系数为
+\begin{equation}
+\begin{aligned} a_{0} &=\frac{1}{2 L} \int_{-L}^{L} f(t) \mathrm{d} t \\ a_{n} &=\frac{1}{L} \int_{-L}^{L} f(t) \cos \frac{n \pi}{L} t \mathrm{d} t \\ b_{n} &=\frac{1}{L} \int_{-L}^{L} f(t) \sin \frac{n \pi}{L} t \mathrm{d} t \end{aligned}
+\end{equation}
+
+	\subsection{半幅傅里叶级数}
+	在许多实际问题中，函数$ \phi (x) $是一个定义在有限区间$ 0<x<L $上的任意函数，因为它不具有周期性，上一节的结果是不适用的。这样的函数能够展开为半幅傅里叶级数（half-range Fourier series）。
+	
+	如果$ \phi (x) $在$ 0<x<L $内是分段光滑的，则$ \phi (x) $有正弦函数展开式
+	\begin{equation}
+	\phi(x)=\sum_{n=1}^{\infty} C_{n} \sin \frac{n \pi x}{L}
+	\end{equation}
+	
+\noindent 和余弦函数展开式
+\begin{equation}
+\phi(x)=D_{0}+\sum_{n=1}^{\infty} D_{n} \cos \frac{n \pi x}{L}
+\end{equation}
+
+\noindent 其中，展开系数为
+\begin{equation}
+	\begin{aligned}
+	C_{n}&=\frac{2}{L} \int_{0}^{L} \phi(x) \sin \frac{n \pi x}{L} \mathrm{d} x \quad(n=1,2,3, \cdots)\\
+	D_{0}&=\frac{1}{L} \int_{0}^{L} \phi(x) \mathrm{d} x\\
+	D_{n}&=\frac{2}{L} \int_{0}^{L} \phi(x) \cos \frac{n \pi x}{L} \mathrm{d} x \quad(n=1,2,3, \cdots)
+	\end{aligned}
+\end{equation}
+
+	展开系数的推导方式同上一节的展开系数的推导，首先得到
+	\begin{equation}
+	\int_{0}^{L} \sin \frac{m \pi x}{L} \sin \frac{n \pi x}{L} \mathrm{d} x=\frac{L}{2} \delta_{m n}
+	\end{equation}
+	
+\noindent 然后可以证明
+\begin{equation}
+\begin{aligned}
+\int_{0}^{L} \phi(x) \sin \frac{m \pi x}{L} \mathrm{d} x&=\int_{0}^{L} \sin \frac{m \pi x}{L}\left(\sum_{n=1}^{\infty} C_{n} \sin \frac{n \pi x}{L}\right) \mathrm{d} x\\
+&=\frac{L}{2} \sum_{n=1}^{\infty} C_{n} \delta_{m n}=\frac{L}{2} C_{m}
+\end{aligned}
+\end{equation}
+
+\noindent 以及
+\begin{equation}
+\int_{0}^{L} \phi(x) \mathrm{d} x=D_{0} \int_{0}^{L} \mathrm{d} x+\sum_{n=1}^{\infty} D_{n} \underbrace{\int_{0}^{L} \cos \frac{n \pi x}{L} \mathrm{d} x}_{=0}
+\end{equation}
+
+\noindent 剩下那个完全是照葫芦画瓢，这里不赘述。
+
+	半幅傅里叶级数的收敛性也服从狄利克雷条件\autoref{equ_Dirichlet}.
+	
+	对于具体问题，特别是数学物理方法的不同边值问题，半幅傅里叶级数呈现不同的形式，除了标准形式外，还可以取
+	\begin{equation}
+	\begin{aligned}
+	\phi(x)&=\sum_{n=0}^{\infty} C_{n} \sin \frac{(2 n+1) \pi x}{2 L}\\
+	\phi(x)&=\sum_{n=0}^{\infty} D_{n} \cos \frac{(2 n+1) \pi x}{2 L}
+	\end{aligned}
+	\end{equation}
+	
+	\noindent 的形式，其中的展开系数为
+	\begin{equation}
+	\begin{aligned} C_{n} &=\frac{2}{L} \int_{0}^{L} \phi(x) \sin \frac{(2 n+1) \pi x}{2 L} \mathrm{d} x \\ D_{n} &=\frac{2}{L} \int_{0}^{L} \phi(x) \cos \frac{(2 n+1) \pi x}{2 L} \mathrm{d} x \end{aligned}
+	\end{equation}
+	
+	\subsection{傅里叶积分}
+	本节讨论一个定义在$ (-\infty,\infty) $区间的非周期函数的傅里叶展开问题。傅里叶级数扩展到连续变化的情况即是傅里叶积分。
+	
+	考虑一个满足绝对可积条件的周期函数，周期为$ 2L $，则它的傅里叶级数为
+	\begin{equation}
+	f(x)=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos \frac{n \pi}{L} x+b_{n} \sin \frac{n \pi}{L} x\right)\label{equ_sum}
+	\end{equation}
+	
+	现在来对该级数进行操作，使其成为定义在$ (-\infty, \infty) $的非周期函数，最简单的途径是令$ L \rightarrow \infty $，则
+	\begin{equation}
+	a_{0}=\frac{1}{2 L} \int_{-L}^{L} f(t) \mathrm{d} t \stackrel{L \rightarrow \infty}{\longrightarrow} 0
+	\end{equation}
+	
+\noindent 其中用到了绝对可积函数的性质（$ f(x) \rightarrow 0 $，当$ x \rightarrow \pm \infty $）。进一步，令$ \omega_{n} = \frac{n \pi}{L} $，则
+\begin{equation}
+\Delta \omega=\omega_{n}-\omega_{n-1}=\frac{\pi}{L}
+\end{equation}
+
+\noindent 求和间隔$ \Delta \omega $在$ L \rightarrow \infty $时将变成微元$ \dif \omega $，而变量$ \omega_{n} $趋于连续变化，\textbf{傅里叶级数则转变成积分的形式}，即
+\begin{equation}
+\sum_{n=1}^{\infty} \cdots \Delta \omega \stackrel{L \rightarrow \infty}{\longrightarrow} \int_{0}^{\infty} \cdots \mathrm{d} \omega
+\end{equation}
+
+	在这样的基础上，可以得到
+	\begin{equation}
+	\begin{aligned}
+	\sum_{n=1}^{\infty} a_{n} \cos \frac{n \pi}{L} x&=\sum_{n=1}^{\infty} \frac{1}{L}\left[\int_{-L}^{L} f(t) \cos \frac{n \pi}{L} t \mathrm{d} t\right] \cos \frac{n \pi}{L} x\\
+	&\stackrel{L \rightarrow \infty}{\longrightarrow} \int_{0}^{\infty} \mathrm{d} \omega\left[\frac{1}{\pi} \int_{-\infty}^{\infty} f(t) \cos \omega t \mathrm{d} t\right] \cos \omega x
+	\end{aligned}
+	\end{equation}
+	
+\noindent 同理
+\begin{equation}
+\sum_{n=1}^{\infty} b_{n} \sin \frac{n \pi}{L} x \stackrel{L \rightarrow \infty}{\longrightarrow} \int_{0}^{\infty} \mathrm{d} \omega\left[\frac{1}{\pi} \int_{-\infty}^{\infty} f(t) \sin \omega t \mathrm{d} t\right] \sin \omega x
+\end{equation}
+
+\noindent 由此可以将\autoref{equ_sum}写成
+\begin{equation}
+f(x)=\int_{0}^{\infty}[A(\omega) \cos \omega x+B(\omega) \sin \omega x] \mathrm{d} \omega\label{equ_int}
+\end{equation}
+
+\noindent 其中
+\begin{equation}
+\begin{aligned}
+A(\omega)&=\frac{1}{\pi} \int_{-\infty}^{\infty} f(t) \cos \omega t \mathrm{d} t \\
+ B(\omega)&=\frac{1}{\pi} \int_{-\infty}^{\infty} f(t) \sin \omega t \mathrm{d} t
+ \end{aligned}\label{equ_int_C}
+\end{equation}
+\noindent \autoref{equ_int}就是函数$ f(x) $的傅里叶积分表示，其中的展开系数由\autoref{equ_int_C}确定。
+
+	在上述由级数到积分的转变中，具体的变化是：\ding{172} $L \rightarrow \infty$ 和$ f(x) $ 的绝对可积性质导致系数$ a_{0} = 0 $；\ding{173} 计算系数的积分限发生了变化，变为全实数范围进行积分；\ding{174} 分立变化的求和变量变成了连续变化的积分变量，而确保级数可以转变为积分的条件而是绝对可积条件，这个条件进一步确保了系数的存在性。
+
+	为了使傅里叶积分式\autoref{equ_int}具有\autoref{equ_Dirichlet}所确定的收敛行为，则需要满足狄利克雷定理成立的条件。
+
+	物理上通常认为，$ f(x) $代表一个“信号”，而系数$ A (\omega) $和$ B(\omega) $则是信号$ f(x) $的频谱分布函数，它们分别相应于正交分量$ \cos \omega t $和$ \sin \omega t $.由信号到频谱的过程，通常称为\textbf{傅里叶分析}。
+
+	绝对可积条件是傅里叶积分存在的充分条件，但不是必要条件。
+
+	\subsection{例题}
+	1、求下面的函数的傅里叶积分表示式
+	\begin{equation}
+	f(x)=\left\{\begin{array}{ll}{1} & {(|x| \leqslant 1)} \\ {0} & {(|x|>1)}\end{array}\right.\label{equ_example_3}
+	\end{equation}
+
+	首先计算频谱分布函数，考虑到\autoref{equ_example_3}表示一个偶函数，故$ B(\omega) =0 $，而
+	\begin{equation}
+		A(\omega)=\frac{1}{\pi} \int_{-1}^{1} \cos \omega t \mathrm{d} t=\frac{2 \sin \omega}{\pi \omega}
+		\end{equation}
+\noindent 于是傅里叶积分表示式为
+\begin{equation}
+	f(x)=\frac{2}{\pi} \int_{0}^{\infty} \frac{\sin \omega \cos \omega x}{\omega} \mathrm{d} \omega
+	\end{equation}
+
+\noindent 然后根据狄利克雷定理可以得到
+\begin{equation}
+\frac{2}{\pi} \int_{0}^{\infty} \frac{\sin \omega \cos \omega x}{\omega} \mathrm{d} \omega=\left\{\begin{array}{ll}{1} & {(|x|<1)} \\ {\frac{1}{2}} & {(|x|=1)} \\ {0} & {(|x|>1)}\end{array}\right.
+\end{equation}
+
+\noindent 特别地，在$ x=0 $，有
+\begin{equation}
+	\int_{0}^{\infty} \frac{\sin \omega}{\omega} \mathrm{d} \omega=\frac{\pi}{2}
+	\end{equation}
+
+	2、求下列函数的傅里叶积分表达式
+	\begin{equation}
+	f(x)=\left\{\begin{array}{ll}{\cos x} & {(|x|<\pi / 2)} \\ {0} & {(|x|>\pi / 2)}\end{array}\right.
+	\end{equation}
+
+	首先按照套路计算频谱分布函数，由于是偶函数，$ B (\omega) = 0 $，而
+	\begin{equation}
+		\begin{aligned}
+			A(\omega)&=\frac{1}{\pi} \int_{-\infty}^{\infty} f(x) \cos \omega x \mathrm{d} x=\frac{2}{\pi} \int_{0}^{\pi / 2} \cos x \cos \omega x \mathrm{d} x \\
+			&=\frac{2 \cos (\omega \pi / 2)}{\pi\left(1-\omega^{2}\right)}
+		\end{aligned}
+		\end{equation}
+	
+\noindent 这个结果允许$ \omega = 1 $，这时可以使用洛必达法则，得到
+\begin{equation}
+	\lim _{\omega \rightarrow 1} \frac{2 \cos (\omega \pi / 2)}{\pi\left(1-\omega^{2}\right)}=\frac{1}{2} \lim _{\omega \rightarrow 1} \frac{\sin (\omega \pi / 2)}{\omega}=\frac{1}{2}
+	\end{equation}
+
+\noindent 由此得到该函数的傅里叶积分表达式为
+\begin{equation}
+	f(x)=\frac{2}{\pi} \int_{0}^{\infty} \frac{\cos (\omega \pi / 2)}{1-\omega^{2}} \cos \omega x d \omega
+	\end{equation}
+
+\noindent 在实数范围内没有间断点，所以可以得到
+\begin{equation}
+\frac{2}{\pi} \int_{0}^{\infty} \frac{\cos (\omega \pi / 2)}{1-\omega^{2}} \cos \omega x \mathrm{d} \omega=\left\{\begin{array}{ll}{\cos x} & {(|x|<\pi / 2)} \\ {0} & {(|x|>\pi / 2)}\end{array}\right.
+\end{equation}
+
+noindent 特别地，在$ x = 0 $处，有
+\begin{equation}
+	\int_{0}^{\infty} \frac{\cos (\omega \pi / 2)}{1-\omega^{2}} \mathrm{d} \omega=\frac{\pi}{2}
+	\end{equation}
+
+
+	\section{傅里叶变换}
+	傅里叶变换是基于傅里叶积分的一类变换，本质上是把一个函数经过积分运算变为另一个函数，两个函数具有一一对应性，由此可以简化运算和得到另一个方面的对应的信息。
+	
+	\subsection{傅里叶变换}
+\end{document}
