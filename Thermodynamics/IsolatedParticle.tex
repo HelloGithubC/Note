@@ -1,0 +1,867 @@
+% !TeX spellcheck = en_US
+\documentclass[UTF8]{ctexart}
+%\setmainfont{Noto Sans CJK SC}
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont=Noto Sans S Chinese Bold Bold]{Noto Sans S Chinese Regular}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, left=2cm, right=2cm,top=2cm,bottom=2cm}
+\usepackage{pifont}
+%\ding{172}=\textcircled{1}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\newcommand{\firstsection}{\subsection}
+\newcommand{\backdoc}{\normalsize}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+
+\title{Part2 IsolatedParticle}
+\author{Xiao Liang}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	\numberwithin{equation}{section}
+	%\CJKfontspec{Noto Sans Mono CJK SC}
+	\CJKfontspec[BoldFont=Noto Sans S Chinese Bold Bold]{Noto Sans S Chinese Regular}
+	
+	全同粒子组成的系统就是\textbf{具有完全相同的内禀属性（相同的质量、电荷、自旋等）的同类粒子组成的系统}。近独立粒子组成的系统，是指\textbf{系统中粒子之间相互作用很弱，相互作用的平均能量远小于单个粒子的平均能量，因而可以忽略粒子之间的相互作用 ，将整个系统的能量表达为单个粒子的能量之和}，即：
+	\begin{equation}
+		\sum_{i=1}^{N} \varepsilon_{i}
+	\end{equation}
+	
+	理想气体就是由近独立粒子组成的系统。
+	
+	\section{分布和微观状态}
+	\firstsection{等概率原理}
+	
+	\backdoc
+	宏观物质系统的特性是大量微观粒子运动的集体表现，宏观物理量是相应微观的统计平均值。只要知道各个微观状态出现的概率，就可以用统计方法求微观量的统计平均值。
+	
+	等概率原理：\textbf{对于处于平衡状态的孤立系统，系统各个可能的微观状态出现的概率是相等的}。等概率原理是一个基本的假设，正确性和种种推论都与客观实际相符以得到肯定。
+	
+	\firstsection{分布和微观状态}
+	
+	\backdoc
+	设有一个系统，由大量全同近独立粒子组成，具有确定的粒子数$ N $、能量$ E $和体积$ V $。对于一个有个确定$ N $、$ E $、$ V $的系统，满足以下条件：
+	\begin{equation}
+	\begin{aligned}
+		&\sum_{l} a_{l}=N \\
+		&\sum_{l} a_{l}\varepsilon_{l}=E
+	\end{aligned}
+	\end{equation}
+	
+	分布不同于微观状态，一个分布只确定了在每一个能级上的粒子数。对于玻色系统和费米系统，确定系统的微观状态要求确定处在每一个个体量子态的粒子数，因此在分布给定后，要确定玻色（费米）系统的微观状态，还必须对每一个能级确定$ a_{l} $个粒子占据其$ \omega_{l} $个量子态的方式。对于三种分布，情况将会很不一样。
+	对于玻尔兹曼系统：
+	\begin{equation}
+		\Omega_{M.B.}=\frac{N !}{\prod_{l} a_{l} !} \prod_{l} w_{l}^{a_{l}}
+	\end{equation}
+	
+	对于玻色系统：
+	\begin{equation}
+		\Omega_{B.E.}=\prod_{l} \frac{(\omega_{l}+a_{l}-1)!}{a_{l}! (w_{l}-1)!}
+	\end{equation}
+	
+	对于费米系统：
+	\begin{equation}
+		\Omega_{F.D.}=\prod_{l} \omega_{l} \frac{\omega_{l} !}{a_{l}! (w_{l}-a_{l})!}
+	\end{equation}
+	
+	在存在经典极限条件（非简并性条件）：
+	\begin{equation}
+		\frac{a_{l}}{w_{l}}\ll 1 \quad(for\ all\ l)
+	\end{equation}
+	
+\noindent 的情况下，平均而言每一个量子态上的粒子远小于1。这个时候，对于玻色系统和费米系统，原本$ a_{l} $个粒子占据能级$ \varepsilon_{l} $上的$ \omega_{l} $个量子态是存在关联的，而现在粒子间的关联性可以忽略，这时$ \Omega_{B.E.} $和$ \Omega_{F.D.} $都趋向$ \frac{\Omega_{M.B.}}{N !} $。在这种情形下粒子全同性原理只表现在因子$ \frac{1}{N !} $上。
+
+	最后是经典统计中的分布和微观状态数。在经典统计中，对于$ r $个\textbf{自由度}的粒子，$ h_{0}^{r} $对应于$ \mu $空间中的一个相格，且可以取任意小的数字。量子力学限制它的最小值为普朗克常量$ h $。通过相空间（和能量划分类似）可以得到经典粒子下的微观状态数为：
+	\begin{equation}
+		\Omega_{cl}=\frac{N !}{\prod_{l} a_{l} !} \prod_{l} \left(\frac{\Delta \omega_{l}}{h_{0}^r}\right)^{a_{l}}
+	\end{equation}
+	
+	\firstsection{最概然分布}
+	
+	\backdoc
+	由于等概率原理，微观状态数最多的分布，即是与宏观态（稳定情况下）对应的分布。通过斯特林公式的推广式：
+	\begin{equation}
+		\ln m! =m(\ln m-1) \quad (for\ m \ll 1)\label{equ3}
+	\end{equation}
+	
+\noindent 同时利用$ \ln x $与$ x $的等单调性，解出$ \delta \ln \Omega =0 $时$ a_{l} $的值，即可得到最概然分布。在此过程中，由于存在约束条件，需要使用拉格朗日乘子法，由此引入两个重要常量$ \alpha $和$ \beta $。前者和化学式$ \mu $有关，后者和温度$ T $有关。
+
+	玻尔兹曼分布如下：
+	\begin{equation}
+		a_{l}=\omega_{l} e^{-\alpha-\beta \varepsilon_{l}}\label{equ1}
+	\end{equation}
+	
+	据此对$ \varepsilon_{l} $求平均得到的即为\textbf{内能}。
+	
+	由式子\ref{equ1}可以发现，在能级$ \varepsilon_{l} $中有$ \omega_{l} $个量子态，每一个量子态的平均粒子数应该是相等的，因此可以定义处在能量为$ \varepsilon_{l} $的量子态$ s $上的平均粒子数$ f_{s} $为：
+	\begin{equation}
+		f_{s}= e^{-\alpha-\beta \varepsilon_{l}}
+	\end{equation}
+	
+	一些补充：
+	
+	（1）由对$ \ln \Omega $求二阶微分得到：
+	\begin{equation}
+		\delta^2 \ln \Omega=-\delta \ln \left( \frac{a_{l}}{w_{l}}\right) \delta a_{l}=- \sum_{l} \frac{(\delta a_{l})^2}{a_{l}}\label{equ2}
+	\end{equation}
+	
+\noindent 由于$ a_{l}>0 $，故\ref{equ2}总是负的。这说明玻尔兹曼分布确实是使得$ \ln \Omega_{M.B.} $为极大值的分布。
+
+	（2）通过计算可以得知，对玻尔兹曼微小的（偏离量和基数的比小到可以忽略）偏离都会导致其概率和最概然分布的概率相比几近于零，因而可知最概然分布对应于宏观态的稳定状态。
+	
+	（3）在前面的推导中，利用了$ a_{l}\ll 1 $的条件（利用\ref{equ3}时需要的条件），而这个条件在实际中并不总是满足。
+	
+	（4）理论可以推广到含有多个组元的情形。
+	
+	补充在经典统计中玻尔兹曼分布的表达式：
+	\begin{equation}
+		a_{l}=e^{-\alpha-\beta\varepsilon_{l}} \frac{\Delta \omega_{l}}{h_{0}^r}
+	\end{equation}
+	
+	玻色系统和费米系统的最概然分布的推导都可以参考玻尔兹曼系统的推导，玻色分布如下：
+	\begin{equation}
+		a_{l}=\frac{\omega_{l}}{e^{\alpha+\beta \varepsilon_{l}}-1}
+	\end{equation}
+	
+	费米分布如下：
+	\begin{equation}
+		a_{l}=\frac{\omega_{l}}{e^{\alpha+\beta \varepsilon_{l}}+1}
+	\end{equation}
+	
+	容易得到处在能量为$ \varepsilon_{l} $的量子态$ s $上的平均粒子数为：
+	\begin{equation}
+		f_{s}=\frac{1}{e^{\alpha+\beta \varepsilon_{l}}}
+	\end{equation}
+	
+	推导结果依赖于以下假设：$ a_{l} \ll 1 $，$ \omega_{l} \ll 1 $（两个都是）和$ \omega_{l}-a_{l} \ll 1 $（仅限后一个）。
+	
+	\subsection{自由粒子的量子态数}
+	在体积$ V $中，能量在$ \varepsilon \rightarrow \varepsilon+\delta\varepsilon $的范围中，考虑自由粒子的德布罗意波和边界条件可以得到：
+	\begin{equation}
+	\begin{aligned}
+		D(p)\dif p&=\frac{4 \pi V}{h^{3}}p^{2}dp\\
+		\varepsilon&=\frac{p^{2}}{2m}
+	\end{aligned}
+	\end{equation}
+	
+	\section{玻尔兹曼统计}
+	根据玻尔兹曼分布来讨论玻色和费米系统的热力学性质，以理想气体作为事例，和热力学的结论进行对比。
+	
+	\subsection{热力学量的统计表达式}
+	内能是系统中粒子无规则运动总能量的统计平均值，所以：
+	\begin{equation}
+		U=\sum_{l} a_{l} \varepsilon_{l}= \sum_{l} \varepsilon_{l} \omega_{l} e^{-\alpha-\beta \varepsilon_{l}}
+	\end{equation}
+	
+	引入粒子配分函数（暂时不知如何推导得出，和正则系统得到的配分函数类似，但来源不明）：
+	\begin{equation}
+		Z_{1}=\sum_{l} \omega_{l} e^{-\beta \varepsilon_{l}}
+	\end{equation}
+	
+	有如下关系：
+	（1）和粒子数的关系：
+	\begin{equation}
+		N=e^{-\alpha}\sum_{l} \omega_{l} e^{-\beta \varepsilon_{l}}=e^{-\alpha}Z_{1}
+	\end{equation}
+	
+	（2）和内能的关系：
+	\begin{equation}
+		U=e^{-\alpha}\sum_{l} \varepsilon_{l} \omega_{l} e^{-\beta \varepsilon_{l}} = - N \frac{\partial}{\partial \beta} \ln Z_{1} \label{equ_U}
+	\end{equation}
+	
+	（3）和\textbf{外界对系统的广义作用力}的关系：
+	\begin{equation}
+		Y = \sum_{l} \frac{\partial \varepsilon_{l}}{\partial y} a_{l}=-\frac{N}{\beta} \frac{\partial}{\partial y} \ln Z_{1}\label{equ_Y}
+	\end{equation}
+	
+\noindent 一个重要例子是：
+	\begin{equation}
+	p=\frac{N}{\beta} \frac{\partial}{\partial y} \ln Z_{1}
+	\end{equation}
+	
+	在无穷小的准静态过程中，当外参量有$ dy $的改变时，外界对系统所作的功是：
+	\begin{equation}
+		Y \dif y=\dif y \sum_{l}\frac{\partial \varepsilon_{l}}{\partial y} a_{l}=\sum_{l} a_{l}d\varepsilon_{l}
+	\end{equation}
+	
+	考虑在无穷小的准静态过程中内能的改变，将内能$ U=\sum_{l} \varepsilon_{l} a_{l} $求全微分，有：
+	\begin{equation}
+		\dif U=\sum_{l} a_{l}d \varepsilon_{l}+\sum_{l} \varepsilon_{l} d a_{l}\label{equ_dU}
+	\end{equation}
+	
+\noindent 式中，第一项中是粒子分布不变时由于外参量改变导致的能级改变而引起的内能变化，第二项是粒子能级不变时由于粒子分布改变所引起的内能变化。这分别代表过程中外界对系统所作的功和过程中系统从外界吸收的热量。由此可以看出，热量本质上是分布的改变对能量的影响，所以不对应于任何微观量。
+
+	现在开始推导熵的统计表达式。
+	
+	由热力学第二定律可知：
+	\begin{equation}
+		\frac{1}{T}dQ=\frac{1}{T}\left(\dif U-Y\dif y \right)=\dif S \label{equ_dS}
+	\end{equation}
+	
+	由式\ref{equ_U}和式\ref{equ_Y}可得：
+	\begin{equation}
+		\dif Q=\dif U-Y\dif y
+	\end{equation}
+	
+	两边都乘上$ \beta $，再考虑$ \ln Z_{1} $的全微分（留意$ \beta $是一个常数），可以得到：
+	\begin{equation}
+		\beta (\dif U-Y\dif y)=N\dif \left(\ln Z_{1}-\beta \frac{\partial}{\partial \beta} \ln Z_{1}\right)\label{equ_beta}
+	\end{equation}
+	
+	此时可知$ \beta $和$ \frac{1}{T} $都是$ \dif Q $的积分因子，可以令：
+	\begin{equation}
+		\beta=\frac{1}{kT}\label{equ_bt}
+	\end{equation}
+	
+	通过微分方程关于积分因子的理论可知存在无穷多个积分因子，且任意两个因子之比时$ S $的函数。由于两个系统合起来的总能量守恒，可以用微观态的乘法法则和求最概然分布的一般方式证得，这两个系统有一个共同的$ \beta $，由此得到$ k $为一个常数，而不会是有关$ S $的函数。比较式\ref{equ_dS}和\ref{equ_beta}并考虑\ref{equ_bt}可以得到：
+	\begin{equation}
+		\dif S=Nk\dif \left(\ln Z_{1}-\beta \frac{\partial}{\partial \beta} \ln Z_{1}\right)
+	\end{equation}
+	
+\noindent 积分得：
+	\begin{equation}
+		S=Nk\left(\ln Z_{1}-\beta \frac{\partial}{\partial \beta} \ln Z_{1}\right)\label{equ_S}
+	\end{equation}
+	
+	经过一番处理可以得到熵和微观态数的关系，著名的\textbf{玻尔兹曼关系}：
+	\begin{equation}
+		S=k\ln \Omega
+	\end{equation}
+	
+	这里需要说明，式\ref{equ_S}只适用于粒子可分辨的系统（定域系统），对于满足经典极限的玻色（费米）系统，熵的表达式\ref{equ_S}需要改为：
+	\begin{equation}
+		S=Nk\left(\ln Z_{1}-\beta \frac{\partial}{\partial \beta} \ln Z_{1}\right)-k\ln N!
+	\end{equation}
+	
+\noindent 和
+	\begin{equation}
+		S=k\ln \frac{\Omega_{M.B.}}{N!}
+	\end{equation}
+	
+\noindent 此时得出的熵函数才满足广延量要求。
+
+	在此基础之上可以很快得到自由能$ F=TS $的统计结果：
+	\begin{equation}
+	\begin{aligned}
+		F&=-N \partial_{\beta} \ln Z_{1}-N k_{B} T\left(\ln Z_{1}-\beta \partial_{\beta} \ln Z_{1}\right)\\
+		&=-N k_{B} T \ln Z_{1}
+	\end{aligned}
+	\end{equation}
+	
+\noindent 或者
+	\begin{equation}
+		F=-N k_{B} T \ln Z_{1}+kT\ln N!
+	\end{equation}
+
+\noindent 两式分别适用于定域系统和满足经典极限条件的玻色（费米）系统。
+
+	利用玻尔兹曼理论求热力学函数的一般程序是：通过量子力学理论或者分析有关的实验数据得到粒子的能级和能级的简并度，然后得出配分函数，便可以利用配分函数求出所有的热力学量。
+	
+	在经典统计理论中可以得到配分函数为：
+	\begin{equation}
+	Z_{1}=\int \frac{d^{r} q d^{r} p}{h^{r}} e^{-\beta \varepsilon(q, p)}
+	\end{equation}
+	
+	对自由粒子可以得到粒子配分函数：
+	\begin{equation}
+	Z_{1}=\int \frac{d^{3} x d^{3} p}{h^{3}} e^{-\frac{\beta}{2 \pi m} p^{2}}=\frac{V}{h^{3}}\left(\frac{2 m}{\beta}\right)^{3 / 2}\label{equ_Z_{1}}
+	\end{equation}
+	
+	\subsection{理想气体的物态方程}
+	求出理想气体的物态方程是对玻尔兹曼统计最近单的应用。考虑单原子气体和自由运动，可以得到式\ref{equ_Z_{1}}，并由此可以得到压强的表达式：
+	\begin{equation}
+	P=\frac{N}{\beta} \partial_{V} \ln Z_{1}=\frac{N k_{B} T}{V}
+	\end{equation}
+	
+\noindent 上式即是理想气体的物态方程，和熟悉的表达式进行对比得到得到玻尔兹曼常量的数值。
+
+	一般气体满足经典极限条件为$ e^{\alpha} \gg 1 $，又知$ e^{a}=\frac{Z_{1}}{N} $，所以可以得到经典极限条件：
+	\begin{equation}
+		e^{a}=\frac{V}{N}\left(\frac{2 \pi m k T}{h^{2}}\right)^{3/2} \gg 1
+	\end{equation}
+	
+\noindent 由上式可知经典条件满足的条件：(1)\ $\frac{N}{V}$越小，即气体愈稀薄；(2)\ 温度愈高；(3)\ 分子的质量$ m $愈大。
+
+	经典条件还可以用另外一种方式表达。考虑德布罗意波长$ \lambda =\frac{h}{p}=\frac{h}{\sqrt{2 m \varepsilon}} $，并将能量$ \varepsilon $理解为分子热运动的平均能量，即$ \pi k T $，则分子的德布罗意波的平均热波长为$ \lambda = h\left(\frac{1}{2 \pi m k T}\right)^{1/2} $。所以经典极限条件可以表示为：
+	\begin{equation}
+		n \lambda^{3}<<1
+	\end{equation}
+	
+\noindent 这意味着分子德布罗意波的波长远小于分子间的平均间距，这表示相互之间作用很弱。
+
+	\subsection{麦克斯韦分布律}
+	根据经典极限条件，对自由运动的气体分子进行研究，在一定的体积$ V $和一定的动量范围$ \dif p_{x} \dif p_{y} \dif p_{z} $中得到分子数为：
+	\begin{equation}
+	\begin{aligned}
+	N_{l}&=\frac{d x d y d z d p_{x} d p_{y} d p_{z}}{h^{3}} e^{-\alpha-\beta \varepsilon}\\
+			&=\frac{V d p_{x} d p_{y} d p_{z}}{h^{3}} e^{-\alpha-\beta \varepsilon}
+	\end{aligned}
+	\end{equation}
+	
+	用粒子数守恒的条件求出参数$ \alpha $的表达式，然后积分可得动量分布关系：
+	\begin{equation}
+		N \left(\frac{1}{2 \pi m k T}\right)^{\frac{3}{2}} e^{\left(p_{x}^{2}+p_{y}^{2}+p_{z}^{2}\right)/2 m k T} \dif p_{x} \dif p_{y} \dif p_{z}
+	\end{equation}
+	
+	进行变量代换，转换到速度空间，并考虑单位体积内的结果，同时考虑$ n=\frac{N}{V} $可以得到：
+	\begin{equation}
+		\begin{aligned}
+			&f(v_{x},v_{y},v_{z}) \dif v_{x} \dif v_{y} \dif v_{z}\\
+		= &n \left(\frac{m}{2 \pi k T}\right)^{3/2} e^{-\frac{m}{2 k T} (v_{x}^{2}+v_{y}^{2}+v_{z}^{2})} \dif v_{x}	\dif v_{y}	\dif v_{z}	
+		\end{aligned}
+	\end{equation}
+
+\noindent 这就是\textbf{麦克斯韦速度分布率}。
+
+	对麦克斯韦速度分布在球坐标中进行积分可以得到气体分子的速率分布，并进行相关计算可以得到\textbf{最概然速度}：
+	\begin{equation}
+		v_{m}=\sqrt{\frac{2 k T}{m}}
+	\end{equation}
+	
+\noindent \textbf{平均速率}：
+	\begin{equation}
+		\overline{v}=\frac{2}{\sqrt{\pi}} v_{m}= \sqrt{\frac{8 k T}{\pi m}}
+	\end{equation}
+	
+\noindent \textbf{方均根速率}：
+	\begin{equation}
+		v_{s}=\sqrt{\frac{3}{2}}v_{m}=\sqrt{\frac{3 k T}{m}}
+	\end{equation}
+	
+	最后讨论碰壁和泄流问题。
+	考虑一个柱体，可以得到：
+	\begin{equation}
+		\dif \Gamma \dif A \dif t=f \dif v_{x} \dif v_{y} \dif v_{z} \dif A \dif t
+	\end{equation}
+	
+\noindent 对速度进行积分，并代入麦克斯韦速率分布率可得：
+	\begin{equation}
+		\Gamma=\frac{1}{4} n \overline{v}
+	\end{equation}
+	
+	如果器壁上有小孔，分子可以通过小孔逸出。如果小孔足够小，对容器内分子平衡分布的影响可以忽略，则单位时间内逸出的分子数就等于碰到小孔面积上的分子数。分子从小孔逸出的过程称为\textbf{泄流}。
+	
+	\subsection{能量均分定理}
+	\textbf{对于处在温度为}$\mathbf{T}$\textbf{的平衡状态的经典系统，例子能量中每一个平方项的平均值为}$\mathbf{\frac{1}{2} k T}$。证明如下：
+
+	首先在经典力学体系中，粒子的能量是动能$\varepsilon_{p}$和势能$\varepsilon_{q}$之和。动能可以表示为动量的平方项之和：
+	\begin{equation}
+\varepsilon_{p}=\frac{1}{2} \sum_{i=1}^{r} a_{i} p_{i}^{2}
+	\end{equation}
+
+\noindent 其中系数$a_{i}$都是正数，有可能是坐标的函数，但与动量无关。求平均值可得：
+	\begin{equation}
+	\begin{aligned}
+\overline{\frac{1}{2} a_{1} p_{1}^2}&=\frac{1}{N} \int \frac{1}{2} a_{1} p_{1}^2 e^{-\alpha-\beta \varepsilon} \frac{\dif q_{1} \cdots \dif q_{r} \dif p_{1} \cdots \dif p_{r}}{h_{0}^{r}}\\
+&=\frac{1}{Z_{1}} \int \frac{1}{2}a_{1}p_{1}^{2} e^{-\beta \varepsilon}\frac{\dif q_{1} \cdots \dif q_{r} \dif p_{1} \cdots \dif p_{r}}{h_{0}^{r}}\label{equ_E}
+	\end{aligned}
+	\end{equation}
+
+\noindent 由分布积分并考虑到系数必定是正数可以得到结论。假如势能中有一部分可以表示为平方项：
+	\begin{equation}
+		\varepsilon_{q}=\frac{1}{2}\sum_{i=1}^{r_{'}} b_{i} q_{i}^{2}+\varepsilon_{q}^{'} \left( q_{r^{'}+1},\cdots , q_{r}\right)
+	\end{equation}
+
+\noindent 系数都为正数，有可能是$ \left( q_{r^{'}+1},\cdots , q_{r}\right) $的函数，则可以类似\ref{equ_E}证明这其中的二次项的平均值也为$ \frac{1}{2} k T $。
+
+	单原子分子只用考虑平动；双原子分子需要考虑平动、转动和两原子之间相对运动；固体中的原子则可以视为在平衡位置附近做微振动，假设各原子的振动时相互独立的简谐运动，可以得到$\varepsilon=\frac{1}{2 m} p_{x}^{2}+\frac{1}{2} k q_{x}^{2}+(\cdots)_{y}+(\cdots)_{z}$。
+	
+	使用能均分定理对空腔内的辐射进行分析，可以得到瑞利-金斯公式，然而在高频处和实验结果严重不符，出现了发散的情况。导致这个荒谬结论的根本原因是，根据经典电动力学辐射场具有无穷多个振动自由度，而根据经典统计的能均分定理每个振动自由度都有同样的贡献，这必然会带来发散的结果。由此看出，经典物理存在根本性的原则困难。
+	
+	总结经典统计物理的几个无法解释的问题：
+	
+	1、原子内的电子对气体的热熔为啥那么没有贡献；
+	
+	2、双原子分子的振动在常温范围为什么对热熔没有贡献；
+	
+	3、低温下氢的热容所得结果与实验不符。
+	
+	这些问题都需要量子理论才能解释。
+	
+	\subsection{理想气体的内能和热容}
+	以双原子为例，研究理想气体内能和热容的量子统计理论。
+	
+	不考虑原子内电子的运动，可以将双原子分子的能量近似表述为平动能、振动能和转动能之和：
+	\begin{equation}
+		\varepsilon=\varepsilon^{t}+\varepsilon^{v}+\varepsilon^{r}
+	\end{equation}
+	
+\noindent 容易得到配分函数关系如下：
+\begin{equation}
+Z_{1}=Z_{1}^{t} Z_{1}^{v} Z_{1}^{r}
+\end{equation}
+
+\noindent 由于配分函数满足乘积关系，容易得知类似内能这样和$ \ln Z_{1} $成正比关系的量都满足可加性。
+
+	现在来具体求解理想气体的配分函数。
+	
+	1、平动配分函数在式\ref{equ_Z_{1}}已经得出为：
+	$$
+	Z_{1}^{t}=\frac{V}{h^{3}}\left(\frac{2 m}{\beta}\right)^{3 / 2}
+	$$
+	
+	2、振动配分函数的求解可以将两原子的相对振动看作线性谐振子，以$ \omega $表示振子的圆频率，可以得到振子的能级为：
+	\begin{equation}
+	\varepsilon_{n}=\left(n+\frac{1}{2}\right) \hbar w, \quad n=0,1, \cdots
+	\end{equation}
+	
+\noindent 由此得到振动配分函数：
+\begin{equation}
+Z_{1}^{v}=\sum_{n=0}^{\infty} e^{-\beta \hbar w(n+1 / 2)}=\frac{e^{-\beta \hbar w / 2}}{1-e^{-\beta \hbar w}}
+\end{equation}
+
+	在振动这里引入特征温度（具有温度的量纲）：
+	\begin{equation}
+	\theta_{v}=\frac{\hbar w}{k_{B}}
+	\end{equation}
+	
+	在常温下有$ T<<\theta_{v} $，所以在常温范围内，振动自由度对热容的贡献度几近于零。可以认为是常温范围双眼自分子的振动能级$ \hbar \omega \ll k T $。这导致振子在常温下能够跃迁的概率很低，平均而言，振子几乎全部被冻结在基态，不受温度升高的影响，因而导致在常温下振动自由度不参与能均分。
+	
+	3、振动配分函数的得出需要考虑双原子分子是否同核。异核情况下，转动能级为：
+	\begin{equation}
+	\varepsilon^{r}=\frac{\ell(\ell+1)}{2 I} \hbar^{2}, \quad \ell=0,1,2, \cdots
+	\end{equation}
+	
+\noindent $ l $为转动量子数，能级的简并度为$ 2l+1 $，因此转动配分函数:
+	\begin{equation}
+	Z_{1}^{r}=\sum_{\ell=0}^{\infty}(2 \ell+1) e^{-\ell(\ell+1) \hbar^{2} /\left(2 l k_{B} T\right)}
+	\end{equation}
+	
+\noindent 同样引入特征温度：
+	\begin{equation}
+		\theta_{r}=\frac{\hbar^{2}}{2 k I}
+	\end{equation}
+	
+	这里引入的特征温度取决于分子的转动惯量，可以由光谱的数据定出。在常温状态下$ \frac{\theta_{r}}{T}<<1 $，在这种情况下，$ l $改变时，$ \frac{\theta_{v}}{T}l(l+1) $可以近似看作准连续变量，因而配分函数可以由积分求出，得到：
+	\begin{equation}
+	Z_{1}^{r}=\frac{T}{\theta_{r}} \int_{0}^{\infty} e^{-x} d x=\frac{T}{\theta_{r}}
+	\end{equation}
+	
+\noindent 在这种情况下，量子统计和经典统计可以得到同样的结果。
+
+	对于同核的双原子分子，则需要考虑微观粒子的全同性对分子转动状态的影响。以氢原子为例，根据微观粒子全同性原理可知，氢原子的转动状态与两个氢核有关：自旋平行时转动量子数$ l $只能取奇数，反之只能取偶数。两者的比例通常是不同的，由此可以得到氢的转动配分函数为两部分组成：
+	\begin{equation}
+	\begin{aligned}
+	Z_{1o}^{r}=\sum_{l=1,3,...} (2l+1)e^{-\frac{l(l+1)\theta_{r}}{r}}
+	Z_{1P}^{r}=\sum_{l=2,4,...} (2l+1)e^{-\frac{l(l+1)\theta_{r}}{r}}
+	\end{aligned}
+	\end{equation}
+
+\noindent 考虑两者的比例便可以得到转动内能和转动热容。
+
+	最后是电子对于气体热容的贡献。对于单原子分子，在原子基项的自选角动量或轨道角动量为零时，原子的基项能级不存在精细结构，电子激发态和基态之差在eV的能级上，相应的特征温度很高，热运动很难使得电子跃迁。如果自选角动量或轨道角动量都不为零，自旋-轨道耦合作用将导致基项能级的精细结构，能级分裂的特征温度不算十分高。在与特征温度可以比拟的温度范围内，电子运动对热容是有贡献的。
+
+	对于经典极限情况下的双原子分子（异核），可以得到配分函数如下：
+	\begin{equation}
+	\begin{aligned}
+	Z_{1}^{t}&=\int \frac{d^{3} x d^{3} p}{h^{3}} e^{-\frac{\beta}{2 m} p^{2}}=\frac{V}{h^{3}}\left(\frac{2 \pi m}{\beta}\right)^{3 / 2} \sim \beta^{-3 / 2}\\
+Z_{1}^{v}&=\int \frac{d r d p_{r}}{h} e^{-\frac{\beta}{2 m_{\mu}}\left(p_{r}^{2}+m_{\mu}^{2} w^{2} r^{2}\right)}=\frac{2 \pi}{h \beta w} \sim \beta^{-1}\\
+Z_{1}^{r}&=\int \frac{d \theta d \varphi d p_{\theta} d p_{\varphi}}{h^{2}} e^{-\frac{\beta}{2 l}\left(p_{\theta}^{2}+p_{\varphi}^{2} / \sin ^{2} \theta\right)}=\frac{8 \pi^{2} I}{h^{2} \beta} \sim \beta^{-1}
+	\end{aligned}
+	\end{equation}
+
+	\subsection{理想气体的熵}
+	考虑单原子理想气体的熵。由经典理论得到的熵的表达式如下：
+	\begin{equation}
+	\begin{aligned}
+S&=N k_{B}\left(\ln Z_{1}-\beta \partial_{\beta} \ln Z_{1}\right)\\
+&=\quad N k_{B}\left[\ln \left(\frac{V}{\lambda^{3}}\right)+\frac{3}{2}\right]
+	\end{aligned}\label{equ_S_class}
+\end{equation}
+
+\noindent 式\ref{equ_S_class}给出的不是绝对熵，有不定的相加常数，而且不符合广延量的要求，这是经典统计理论的又一个原则性困难。然而，当我们在式\ref{equ_S_class}减去$ k\ln N! $后便可以解决这个困难了。从量子理论的角度去解释，那便是理想气体的量子本性是玻色分布或者费米分布，由于满足经典极限条件，在这情形下最概然分布可以写作$ \frac{\Omega_{M.B.}}{N!} $。由此得到的熵的表达式如下：
+	\begin{equation}
+	S=\quad N k_{B}\left\{\ln \left(\frac{V}{N \lambda^{3}}\right)+\frac{5}{2}\right\}\label{equ_S_quantum}
+	\end{equation}
+
+\noindent 符合广延量定义，而且是绝对熵。
+
+	为了进行验证，将与凝聚相达到平衡的饱和蒸气看作理想气体，并利用物态方程得到：
+	\begin{equation}
+\ln P=\frac{5}{2}-3 \ln \lambda+\ln \left(k_{B} T\right)-\frac{S}{N k_{B}}\label{equ_lnp}
+\end{equation}
+
+\noindent 其中$ S $表示气相和凝聚相的熵之差，考虑：
+	\begin{equation}
+		S_{vap}-S{con}=\frac{L}{T}
+	\end{equation}
+	
+\noindent 在足够低的温度下，$ S_{con}<<\frac{L}{T} $故可以简化式\ref{equ_lnp}为：
+	\begin{equation}
+		\ln P=\frac{5}{2}-3 \ln \lambda+\ln \left(k_{B} T\right)-\frac{L}{N k_{B}}
+	\end{equation}
+	
+\noindent 由上式算得的蒸气压与实测的蒸气压完全符合，为式\ref{equ_S_quantum}提供了实验证明，上式也被称为\textbf{萨库尔-铁特罗特公式}。
+
+	单原子理想气体的化学式可以由上面的讨论计算出为：
+	\begin{equation}
+	\mu=k_{B} T \ln \left(\frac{N \lambda^{3}}{V}\right)
+	\end{equation}
+	
+\noindent 由此可得理想气体的化学势为负数，暂时不好理解。
+
+	\subsection{固体热容的爱因斯坦理论}
+	爱因斯坦假设固体中原子的热运动是$ 3N $个振子的振动，遵从波尔兹曼分布，且假设这些振子的频率都相同，由此可以得到振子的能级为：
+	\begin{equation}
+		\varepsilon_{n}=\hbar \omega \left(n+\frac{1}{2}\right) \quad n=0,1,2,\cdots
+	\end{equation}
+	
+	需要引入爱因斯坦特征温度$ \theta_{E}=\frac{\hbar \omega}{k} $，由此可以得到热容：
+	\begin{equation}
+	C_{V}=3 N k_{B} \frac{(\beta \hbar w)^{2} e^{\beta \hbar w}}{\left(e^{\beta \hbar w}-1\right)^{2}}=3 N k_{B} \frac{\left(\theta_{E} / T\right)^{2} e^{\theta_{E} / T}}{\left(e^{\theta_{E} / T}-1\right)^{2}}
+	\end{equation}
+	
+\noindent 在高温下情况下和经典的能均分定理结果一致，可以理解为，当$ T\ll \theta_{E} $时，能级间距远小于$ kT $，能量量子化的效应可以忽略，因而经典统计是适用的。当$ T<< \theta_{E} $时，可以得到：
+	\begin{equation}
+		C_{V}=3Nk \left(\frac{\theta_{E}}{T}\right)^{2} e^{-\frac{\theta_{E}}{T}}
+	\end{equation}
+	
+\noindent 这个式子和实验结论定性符合，热容趋于零可以认为是振子都被冻结在基态，环境温度对其能量提升几无作用。该式子和实验测得的相比下降地过快，这是由于在假设中将振子频率定为一样的缘故，因而导致被同时冻结。
+
+	\subsection{顺磁性固体}
+	假设磁性离子定域在晶体的特定格点上，密度比较低，彼此相距足够远，相互作用可以忽略。在这种情况下顺磁性固体可以看做由定域近独立的磁性离子组成的系统，遵从波尔兹曼分布。
+	
+	假设磁性离子的总角动量量子数为$ \frac{1}{2} $，离子磁矩$ \mu $在外磁场中能量的可能值为$\pm \mu B$，顺着外磁场方向为负。由此可得到配分函数：
+	\begin{equation}
+		Z_{1}=\sum_{\ell} w_{\ell} e^{-\beta \varepsilon_{\ell}}=e^{-\beta \mu B}+e^{\beta \mu B}
+	\end{equation}
+	
+\noindent 由此可求出求出磁化强度：
+	\begin{equation}
+	\begin{aligned}
+		\dif W&=-\mu_{0} m \dif H\\
+		Y&=-\frac{N}{\beta} \frac{\partial \ln Z_{1}}{\partial y}\\
+		M&=\frac{m}{V}=-\frac{1}{\mu_{0} V} \frac{N}{\beta} \partial_{H} \ln Z_{1}
+	\end{aligned}
+	\end{equation}
+	
+\noindent 可以得到：
+	\begin{equation}
+		M=n \mu \tanh \left(\frac{\mu B}{k T}\right)
+	\end{equation}
+	
+	在弱场和高温极限下，可以得到居里定律；在强场或低温极限下，可以得到$ M=n \mu $，这意味着，几乎所有的自选磁矩都沿着外磁场方向，磁化达到饱和。
+	
+	顺磁性固体单位体积的熵为：
+	\begin{equation}
+	s=n k_{B}\left[\ln 2+\ln \cosh \left(\frac{\mu B}{k_{B} T}\right)-\left(\frac{\mu B}{k_{B} T}\right) \tanh \left(\frac{\mu B}{k_{B} T}\right)\right]
+	\end{equation}
+	
+ 	在弱场或高温极限下可得：
+ 	\begin{equation}
+	S \approx N k_{B} \ln 2=k_{B} \ln 2^{N}
+	\end{equation}  
+
+ 	这意味着，系统单位体积的微观状态数为$ 2^{n} $，可以理解为在弱场或高温极限，磁矩沿磁场或逆着磁场方向的概率近乎相等。
+ 	
+ 	在强场或低温极限下可得：
+ 	\begin{equation}
+ 	s \approx 0
+ 	\end{equation}
+
+这意味着系统的微观状态数为1，即所有的磁矩都沿外磁场方向。
+	上述理论可以推广到磁性离子的角动量量子数J为任意整数或半整数的情形，而且也同样适用于核自旋系统。
+
+	\subsection{负温度状态}
+	根据热力学基本方程，系统的温度$ T $与参量$ y $保持不变时熵随内能的变化率之间的关系如下：
+	\begin{equation}
+	\frac{1}{T}=\left(\frac{\partial S}{\partial U}\right)_{y} \label{equ_T_S}
+	\end{equation}
+
+\noindent 在一般系统中，内能跟系统可能的微观数成正相关关系，这时温度是恒正的。但也存在一些系统，熵函数不随内能单调地增加，系统处在负温度状态。核自旋系统就是如此。
+	考虑一个孤立的核自旋系统，以粒子数$ N $、能量$ E $和外磁场$ B $为参量。假设核自旋量子数为$ \frac{1}{2}$。在外磁场$ B $下，由于磁矩可与外磁场逆向或者同向，其能量有两个可能值$ \pm \frac{Be \hbar}{2m_{n}} $，简记为$ \pm \varepsilon $。以$ N $表示系统所含有的总核磁矩数，下标分别表示不同能量的核磁矩数。可以得到：
+	\begin{equation}
+	N_{+}+N_{-}=N
+	\end{equation}
+
+\noindent 系统的能量为：
+	\begin{equation}
+	E=(E_{+}-E_{-})\varepsilon
+	\end{equation}
+
+\noindent 由此可以得到：
+	\begin{equation}
+	\begin{aligned}
+	N_{+}&=\frac{N}{2} \left(1+\frac{E}{N \varepsilon}\right)\\
+	N_{-}&=\frac{N}{2} \left(1-\frac{E}{N \varepsilon}\right)
+	\end{aligned}
+	\end{equation}
+
+\noindent 系统的熵为：
+	\begin{equation}
+	S=k \ln \Omega =k \ln \frac{N!}{N_{+}! N_{-}!}
+	\end{equation}
+
+\noindent 整理可得：
+	\begin{equation}
+S=\quad N k_{B}\left[\ln 2-\frac{1}{2}\left(1+\frac{E}{N \varepsilon}\right) \ln \left(1+\frac{E}{N \varepsilon}\right)-\frac{1}{2}\left(1-\frac{E}{N \varepsilon}\right) \ln \left(1-\frac{E}{N \varepsilon}\right)\right]
+\end{equation}
+
+\noindent 根据式\ref{equ_T_S}可得：
+	\begin{equation}
+\frac{1}{T}=\left(\partial_{U} S\right)_{B}=\frac{k_{B}}{2 \varepsilon} \ln \left(\frac{N \varepsilon-E}{N \varepsilon+E}\right)
+\end{equation}
+
+	可以这样理解。在$ T=\pm 0 K $时，$ N $个磁矩都沿磁场方向，每一磁矩的能量均为$ -\varepsilon $，系统的能量为$ -N \varepsilon $。由于系统的微观状态完全确定，这状态的熵为零。随着温度的升高，磁矩反向的数目逐渐增加，因而系统的而内能和熵都在逐渐增加。到$ T=\pm \infty K $时，磁矩沿磁场方向和逆着磁场方向的概率相等，数目均为$ \frac{N}{2} $。熵也增加到$S=Nk \ln 2$。当逆磁场方向的磁矩数大于$ \frac{N}{2} $时，系统的能量取正值。但在能量增加的同时，系统的可能的微观状态数却反而减少，因而熵也减少，当能量增加到$ N \varepsilon $时，$ N $个磁矩都逆磁场方向，熵减少到零，在这过程中，温度由$ -\infty K $变到$ -0 K $。由此可以看出，处在负温状态下的系统能量高于正温下的系统能量。热传递的顺序为$ +0 K \rightarrow +273K \rightarrow \pm \infty K \rightarrow -273K \rightarrow -0K $
+
+	负温状态下核自旋系统的磁化强度与外磁场反向。如果晶体中核自旋相互作用的弛豫时间$ t_{1} $远小于核自旋与晶格相互作用的弛豫时间$ t_{2} $，这种状况是可以实现的。
+
+	系统处在负温状态的条件是很严格的：(1)\ 粒子的能级必须有上限（不然就没法下降了）；(2)\ 负温系统必须与任何正温系统隔绝，或者系统本身达到平衡的弛豫时间$ t_{1} $远小于系统与任何正温系统达到平衡的弛豫时间$ t_{2} $。一个系统不可能经准静态过程由正温状态变到负温状态。 
+
+	\section{玻色统计和费米统计}
+	之前都是在定域系统或者满足经典极限条件（非简并条件）的近独立粒子系统的平衡性质，即
+	\begin{equation}
+	\begin{aligned}
+	e^{a}&=\frac{V}{N}\left(\frac{2 \pi n k T}{h^{2}}\right)^{\frac{3}{2}} \gg 1\\
+	n^{3} \lambda& = \frac{N}{V} \left(\frac{h^{2}}{2 \pi n k T}\right)^{\frac{3}{2}} \ll 1
+   	\end{aligned}
+	\end{equation}
+
+	接下来这一部分将会考虑不满足经典极限条件，也就是考虑量子效应的玻色气体和费米气体系统的统计表达式。
+
+	\subsection{热力学量的统计表达式}
+	根据热平衡条件，系统与源达到平衡时，两者具有相同的温度和化学势（这相当于具有相同的$ \alpha $和$ \beta $）。平均分布与最概然分布概念上有所不同，但分布的表达式时完全相同的。在实际应用上区别仅仅在于将$ \alpha,\beta $还是$ N, U $看作已知参量。下面采取平均分布的观点。
+
+	首先考虑玻色系统。系统的平均总粒子数为：
+	\begin{equation}
+	\overline{N}=\sum_{l} a_{l}= \sum_{l} \frac{\omega_{l}}{e^{\alpha + \beta \varepsilon_{l}}-1} 
+	\end{equation}
+
+\noindent 由于有能量和粒子的交换，引入巨配分函数：
+	\begin{equation}
+ 	\Xi =\prod_{\ell} \Xi_{\ell}=\prod_{\ell}\left(1-e^{-\alpha-\beta \varepsilon_{\ell}}\right)^{-w_{\ell}}
+	\end{equation}
+
+\noindent 根据巨配分函数可得：
+
+(1)\ 平均总粒子
+	\begin{equation}
+ 	\overline{N}=-\frac{\partial}{\partial \alpha} \ln \Xi
+	\end{equation}
+
+(2)\ 内能
+	\begin{equation}
+	\begin{aligned}
+ 	U&=\sum_{l} \varepsilon_{l} a_{l}=\sum_{l} \frac{\varepsilon_{l} \omega_{l}}{e^{\alpha+\beta \varepsilon_{l}}-1}\\
+	&=-\frac{\partial}{\partial \beta} \ln \Xi
+	\end{aligned}
+	\end{equation}
+
+(3)\ 外界对系统的广义作用力	
+	\begin{equation}
+ 	Y=\sum_{\ell} \frac{w_{\ell}}{e^{\alpha+\beta w_{\ell}} - 1} \frac{\partial \varepsilon_{\ell}}{\partial y}=-\frac{1}{\beta} \partial_{y} \ln \Xi
+	\end{equation}
+
+(4)\ 熵
+
+\noindent 利用和\ref{equ_bt}一样的方法，令
+	\begin{equation}
+	\beta\left(d U-Y d y+\frac{\alpha}{\beta} d \overline{N}\right)=d(\ln \Xi+\alpha \overline{N}+\beta U)
+	\end{equation}
+
+\noindent 可以得到
+	\begin{equation}
+	\frac{1}{T}(d U-Y d y-\mu d \overline{N})=d S
+	\end{equation}
+
+\noindent 整理可得
+	\begin{equation}
+ 	S=k \ln \Omega 
+	\end{equation}
+
+\noindent 这就是熟知的\textbf{玻尔兹曼关系}，它给出了熵和微观状态数之间的关系。
+
+	对于费米系统，只要将巨配分函数改为
+	\begin{equation}
+	\Xi = \prod_{l} \Xi_{l}=\prod_{l} \left(1+e^{-\alpha -\beta \varepsilon_{l}}\right) 
+	\end{equation}
+
+\noindent 前面得到的热力学量的统计表达式完全适用。
+
+	\subsection{弱简并理想玻色气体和费米气体}
+	在本部分我们考虑不满足非简并条件但效应不算强烈的理想玻色和费米气体，同时不考虑除了平动自由度以外的自由度。
+
+	经过一番处理可以得到：
+	\begin{equation}
+	\begin{aligned}
+N &\approx g \frac{2 \pi V}{h^{3}}(2 m)^{3 / 2} \int_{0}^{\infty} \varepsilon^{1 / 2} d \varepsilon e^{-\alpha-\beta \varepsilon}\left(1 \pm e^{-\alpha-\beta \varepsilon}\right)\\
+U&=g \frac{2 \pi V}{h^{3}}(2 m)^{3 / 2} \int_{0}^{\infty} \frac{\varepsilon^{3 / 2} d \varepsilon}{e^{\alpha+\beta \varepsilon} \mp 1}
+   	\end{aligned}	
+	\end{equation}
+
+\noindent 引入变量$ i=\beta \varepsilon $并经过积分可以得到：
+	\begin{equation}
+	\begin{aligned}
+U &=g\left(\frac{2 \pi m}{h^{2} \beta}\right)^{3 / 2} \frac{3}{2} k_{B} T V e^{-\alpha}\left(1 \pm \frac{e^{-\alpha}}{4 \sqrt{2}}\right) \\
+N &=g\left(\frac{2 \pi m}{h^{2} \beta}\right)^{3 / 2} V e^{-\alpha}\left(1 \pm \frac{e^{-\alpha}}{2 \sqrt{2}}\right)
+	\end{aligned}
+	\end{equation}
+
+\noindent 两式相除，并将$ e^{-\alpha} $用0级近似，即用玻尔兹曼分布结果
+	\begin{equation}
+ 	e^{-\alpha}=\frac{N}{V} \left(\frac{h^{2}}{2 \pi m k T}\right)^{\frac{3}{2}} \frac{1}{g}
+	\end{equation}
+
+\noindent 代入得到：
+	\begin{equation}
+ 	U=\frac{3}{2} N k T \left(1 \pm \frac{1}{4 \sqrt{2} g} n \lambda^{3}\right)
+	\end{equation}
+
+\noindent 上式第一项时根据玻尔兹曼分布得到的内能，第二项是由微观粒子全同性原理引起的量子统计关联所导致的附加内容。在弱简并条件下附加内能是小的。费米气体的附加内能为正而玻色气体的附加内能为负。可以认为，量子统计关联使费米粒子间产生了等效的排斥作用而使玻色粒子间出现了等效的吸引作用。
+
+	\subsection{玻色-爱因斯坦凝聚}
+	当理想气玻色气体的$ n \lambda^{3} \ge 2.612 $时将会出现独特的玻色-爱因斯坦凝聚。考虑由$ N $个全同、近独立的玻色子组成的系统，温度为$ T $、体积为$ V $。假设粒子的自旋为零，根据玻色分布，处在能级$ \varepsilon_{l} $的粒子数为：
+	\begin{equation}
+		a_{l}=\frac{\omega_{l}}{e^{\frac{\varepsilon_{l}-\mu}{k T}}-1}
+	\end{equation}
+	
+\noindent 显然，处在任一能级的粒子数都不能取负值，这就必然要求对所有能级均有$ e^{\frac{\varepsilon_{l}-\mu}{k T}}>1 $。这就是说，理想玻色气体的化学势必须低于粒子最低能级的能量。如果取最低能量的零点即$ \varepsilon_{0}=0 $，则可表示为：
+\begin{equation}
+	\varepsilon_{0}<0
+\end{equation}
+
+	化学势$ \mu $由公式
+	\begin{equation}
+		\frac{1}{V} \sum_{l} \frac{\omega_{l}}{e^{\frac{\varepsilon_{l}-\mu}{k T}}-1}=\frac{N}{V}=n
+	\end{equation}
+	
+\noindent 确定。由于$ \varepsilon_{l} $和$ \omega_{l} $都与温度无关，所以在粒子数密度$ n $给定的情况下，温度愈低由上式确定的$ \mu $值必然越高。在热力学极限或能级间距远小于$ k T $的情况下，可以将求和改为积分，即
+\begin{equation}
+	\frac{2 \pi}{h^{3}} (2m)^{\frac{3}{2}} \int_{0}^{\infty} \frac{\varepsilon^{\frac{1}{2} \dif \varepsilon}}{e^{\frac{\varepsilon_{l}-\mu}{k T}}-1}=n \label{equ_mu}
+\end{equation}
+
+	化学势既随然温度的降低而升高，那必然存在某一临界温度，这时$ \mu $将趋于$ -\mu $，由此得到$ e^{\frac{\varepsilon_{l}-\mu}{k T}} $趋于1.临界温度$ T_{C} $由下式定出：
+	\begin{equation}
+		\frac{2 \pi}{h^{3}} (2m)^{\frac{3}{2}} \int_{0}^{\infty} \frac{\varepsilon^{\frac{1}{2} \dif \varepsilon}}{e^{\frac{\varepsilon_{l}-\mu}{k T_{C}}}-1}=n
+	\end{equation}
+	
+	令$ x=\frac{\varepsilon}{k T_{C}} $且考虑到
+	\begin{equation}
+		\int_{0}^{\infty} \frac{x^{\frac{1}{2}}}{e^{x}-1}=\frac{\sqrt{\pi}}{2} \times 2.612
+	\end{equation}
+	
+\noindent 可得到临界温度$ T_{C} $为
+	\begin{equation}
+		T_{C}=\frac{2 \pi}{(2.612)^{\frac{2}{3}}} \frac{\hbar^{2}}{m k}(n)^{\frac{2}{3}}
+	\end{equation}
+	
+	这里可以发现一个问题。当实际温度低于临界温度时，由于在任何温度下化学势都是负的，所以必然有$ \mu \rightarrow -0 $。但这时式\ref{equ_mu}左方将小于$ n $，这与给定的条件矛盾。造成矛盾的原因时在进行积分换算时有意地忽略了$ \varepsilon=0 $的粒子数的贡献。当$ \mu $是一个有限的负值时，和总粒子数相比可以忽略，但当$ \mu \rightarrow -0 $时这个忽略便变得不能接受了，所以应该改写为：
+	\begin{equation}
+		n_{0}(T)+\frac{2 \pi}{h^{3}} (2m)^{\frac{3}{2}} \int_{0}^{\infty} \frac{\varepsilon^{\frac{1}{2} \dif \varepsilon}}{e^{\frac{\varepsilon_{l}-\mu}{k T_{C}}}-1}=n
+	\end{equation}
+	
+	考虑到第二项结果为$ n \left(1-\frac{T}{T_{C}}\right) $，所以可知温度为$ T $时处在最低能及$ \varepsilon=0 $的粒子数密度为：
+	\begin{equation}
+		n_{0}(T)=n \left[1-\left(\frac{T}{T_{C}}\right)^{\frac{3}{2}}\right]\label{equ_n}
+	\end{equation}
+	
+	由此可知，在$ T_{C} $以下$ n_{0} \approx n $，其随温度的变化如下图所示：
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=12cm]{Boas_mass.png}
+		\caption{低于临界温度下的粒子数情况}
+		\label{figure_Boas_mass}
+	\end{figure}
+
+	我们知道，在绝对零度下粒子将尽可能占据能量最低的状态。对于玻色粒子，一个量子态所能容纳的粒子数目不受限制，因此绝对零度下玻色粒子将全部处于$ \varepsilon=0 $的最低能级。由\ref{equ_n}可知，在$ T<T_{C} $时就有宏观量级的粒子在能级$ \varepsilon=0 $凝聚，这一现象即被称为\textbf{玻色-爱因斯坦凝聚}，简称玻色凝聚。$ T_{C} $被称为凝聚温度，凝聚在$ \varepsilon_{0} $的粒子集合被称为玻色凝聚体。凝聚体不但能量、动量为零，由于微观状态完全确定，熵也为零。由于动量为零，对压强便没有贡献，这意味着无法进行能量传递。
+	
+	出现凝聚体的条件为：
+	\begin{equation}
+		n \left(\frac{h}{\sqrt{2 \pi m k T_{C}}}\right)^{3}= n \lambda^{3} =2.612
+	\end{equation}
+
+\noindent 由此可知，可以通过降低温度和增加气体粒子数密度的方法来实现玻色凝聚。
+
+	\subsection{光子气体}
+	本节从粒子的观点根据玻色分布讨论平衡辐射的问题。在平衡辐射中光子数是不守恒的。
+	
+	由能均分定理推导出的有限温度下平衡辐射的内能和热容是发散的，据此辐射场不可能与其他物体达到热平衡，与实际不符。根据粒子的观点，可以把空窖内的辐射场看作光子气体，考虑以下和光子有关的关系：
+	\begin{equation}
+		\begin{aligned}
+		\mathbf{p}&=\hbar \mathbf{k}\\
+		\varepsilon&=\hbar \omega\\
+		\varepsilon&=c p
+		\end{aligned}
+		\label{equ_photon}
+	\end{equation}
+	
+	光子是玻色子，达成平衡后遵从玻色分布。由于光子和其他物体的相互作用是通过吸收和发射光子实现的，这两个过程并非原子化过程，这必然导致光子数的不守恒，因而在导出玻色分布时只存在$ E $是常数的条件，从而只需要引入一个拉式乘子$ \beta $即可。统计分布表达式如下：
+	\begin{equation}
+		a_{l}=\frac{\omega_{l}}{e^{\beta \varepsilon_{l}}-1}
+	\end{equation}
+	
+\noindent 由于$ \alpha=-\frac{\mu}{k T} $，这意味着平衡状态下光子气体的化学势为零。
+	
+	光子的自旋量子数为1，自旋在动量方向的投影可取$ \pm \hbar $两个可能性，相当于左、右偏振，由此可得在体积为$ V $的空窖内，在$ p $和$ p+\dif p $的动量范围内，光子的量子态数为：
+	\begin{equation}
+		\omega_{l}=\frac{8 \pi V}{h^{3}} p^{2} \dif p
+	\end{equation}
+	
+\noindent 考虑式\ref{equ_photon}可以得到光子的量子态数为：
+\begin{equation}
+	\omega_{l}=\frac{V}{\pi^{2} c^{3}} w^{2} \dif w
+\end{equation}
+
+\noindent 平均光子数：
+\begin{equation}
+	a_{\ell}=\frac{w_{\ell}}{e^{\beta \varepsilon_{\ell}}-1}=\frac{V}{\pi^{2} c^{3}} \frac{w^{2} \dif w}{e^{\beta \hbar w}-1}
+\end{equation}
+
+\noindent 辐射场的内能则为：
+\begin{equation}
+	U(w, T)=\frac{V}{\pi^{2} c^{3}} \frac{\hbar w^{3}}{e^{\beta \hbar w}-1} \dif w \label{equ_photon_U}
+\end{equation}
+
+	上式被称为\textbf{普朗克公式}。普朗克公式在低频（$ \frac{\hbar \omega}{k T}\ll 1 $）和高频（$ \frac{\hbar \omega}{k T}\gg 1 $）范围内分别得到\textbf{瑞利-金斯公式}和\textbf{维恩公式}：
+	\begin{equation}
+		\begin{aligned}
+		U(\omega, T) \dif \omega &\approx \frac{V}{\pi^{2} c^{3}} \frac{w^{2}}{\beta} \dif \omega\\
+		U(\omega, T) \dif \omega &\approx \frac{V}{\pi^{2} c^{3}} \hbar w^{3} e^{-\beta \hbar w} \dif \omega 
+		\end{aligned}
+	\end{equation}
+	
+	现在再从波动观点来理解普朗克公式的物理图像。空窖内的辐射场可以分解为无穷多个单色平面波的叠加，具有一定波矢和偏振的单色平面波可以看作辐射场的一个振动自由度，因此辐射场是具有无穷多个振动自由度的力学系统，根据量子理论，一个振动自由度的能量可能值为：
+	\begin{equation}
+		\varepsilon_{n}=\hbar \omega \left(n+\frac{1}{2}\right) \quad n=0,1,2,...
+	\end{equation}
+	
+	玻色分布给出在温度$ T $的平衡状态下$ n $的平均值$ \overline{n}=1/\left(e^{\frac{\hbar \omega}{k T}}-1\right) $。从粒子的观点看，$ \overline{n} $是平均光子数，从波动观点看它是量子数的平均值。再低频范围内，$ \frac{\hbar \omega}{k T} $可看作准连续的变量，能量均分定理适用；再高频范围内，自由度都被冻结在$ n=0 $的基态，这样经典统计研究平衡辐射问题出现的困难便得到解决。
+	
+	将式\ref{equ_photon_U}积分可求得平衡辐射的内能：
+	\begin{equation}
+		U=\frac{V}{\pi^{2} c^{3}} \int_{0}^{\infty} \frac{\hbar \omega^{3}}{e^{\frac{\hbar \omega}{k T}}-1} \dif \omega
+	\end{equation}
+	
+\noindent 引入变量$ x=\frac{\hbar \omega}{k T} $，并将积分求出，可以得到：
+\begin{equation}
+	U =\frac{V \pi^{2}}{15 c^{3} \hbar^{3}}\left(k T\right)^{4}
+\end{equation}
+
+	根据普朗克公式\ref{equ_photon_U}，辐射场的内能密度随$ \omega $的分布有一极大值，可以得知，使得辐射场能量取极大值的$ \frac{\hbar \omega_{m}}{k T} \approx 2.822 $是一定的，这结论称为\textbf{维恩位移定律}。
+	
+	在这个基础上可以得到巨配分函数的对数为：
+	\begin{equation}
+		\begin{aligned}
+		\ln \Xi &=-\sum_{\ell} w_{\ell} \ln \left(1-e^{-\beta \hbar w}\right)\\
+		&=-\frac{V}{\pi^{2} c^{3}} \int d w w^{2} \ln \left(1-e^{-\beta \hbar w}\right)
+		\end{aligned}
+	\end{equation}
+	
+	引入和前面一样的变量并应用分部积分方法可以得到：
+	\begin{equation}
+		\ln \Xi =\frac{\pi^{2} V}{45 c^{3}} \frac{1}{(\beta \hbar)^{3}}
+	\end{equation}
+	
+	在此基础之上就可以求出光子气体的内能、压强和熵。考虑平衡辐射的通量密度与内能密度的关系$ J_{u}=\frac{c}{4} \frac{U}{V} $，可以得到光子气体的辐射通量密度：
+	\begin{equation}
+		J_{u}=\frac{\pi^{2} k^{4}}{60 c^{2} \hbar^{3}} T^{4}
+	\end{equation}
+	
+\end{document}
